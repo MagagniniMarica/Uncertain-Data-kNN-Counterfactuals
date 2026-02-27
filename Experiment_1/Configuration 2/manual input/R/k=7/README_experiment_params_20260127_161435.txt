@@ -1,0 +1,19 @@
+seed (random) = 23
+DataType = R
+Notion of distance = dint2
+k = 7
+M = 1000.0
+alpha = 0.5
+eps = 1e-05
+U center = {'x1': 10, 'x2': 5}
+S center = {'x1': 0, 'x2': 0}
+Dataset name = Synthetic
+Features = Index(['x1', 'x2'], dtype='object')
+Number of elements (N) = 30
+Number of features (J) = 2
+Uncertainty percentage range data = (0.04, 0.09)
+Uncertainty percentage Input = 0.06
+Uncertainty percentage counterfactual = 0.06
+0-label distribution = {'mean': 4, 'std': 5.477225575051661}
+1-label distribution = {'mean': -2, 'std': 5.477225575051661}
+Exact Solver Time Limit (s) = 100
