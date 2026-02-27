@@ -479,7 +479,7 @@ def add_legend(ax, linecolor, DataType,counterfactual=False):
 def plot_count_(d:str,U, S,data,Nk,
               margin = float, figsize_cm=float, save : bool = False,
               path: str = None, filename: str = None):
-    # cm → inch (matplotlib usa inch)
+    # cm to inch (matplotlib usa inch)
     figsize_in = figsize_cm / 2.54
 
     fig, ax = plt.subplots(figsize=(figsize_in, figsize_in))
@@ -506,26 +506,7 @@ def plot_count_(d:str,U, S,data,Nk,
         pS = tuple(pS_pUn[pS_pUn_name][0].values())
         pUn = tuple(pS_pUn[pS_pUn_name][1].values())
         plot_distance(ax, pS,pUn, linestyle="--", color=linecolor[pS_pUn_name], linewidth=1.2)
-
-        # (opzionale) scrivi il valore della distanza a metà segmento
-        # annotate_distance(
-        # ax,
-        # pS,
-        # pUn,
-        # Nk[pS_pUn_name][0], # distance
-        # offset=0.2,   # regola questo valore se serve
-        # fontsize=9,
-        # color="black"
-        # )
     
-    
-    
-    # 3) limiti quadrati + stile
-
-    # assi cartesiani
-    # ax.axhline(0.0, linestyle="--", linewidth=1.2, color="black", zorder=0)
-    # ax.axvline(0.0, linestyle="--", linewidth=1.2, color="black", zorder=0)
-
 
     set_square_limits(ax, [U,S] + list(data), margin=margin)
     DataType= 'R' if isinstance(U, Rettangolo) else 'B'
@@ -535,10 +516,10 @@ def plot_count_(d:str,U, S,data,Nk,
     ax.set_ylabel(r"$x_2$")
     plt.tight_layout()
 
-    # Mostra
+    
     plt.show()
 
-    # Salva (meglio fare savefig PRIMA di close e usando fig.savefig)
+    
     if save:
         os.makedirs(path, exist_ok=True)
         save_path = os.path.join(path, filename)
@@ -551,7 +532,7 @@ def plot_compare_count_(U, counterfactuals ,data,
               margin = float, figsize_cm=float, save : bool = False,
               path: str = None, filename: str = None):
     DataType= 'R' if isinstance(U, Rettangolo) else 'B'
-    # cm → inch (matplotlib usa inch)
+    # cm to inch (matplotlib usa inch)
     figsize_in = figsize_cm / 2.54
 
     fig, ax = plt.subplots(figsize=(figsize_in, figsize_in))
@@ -587,10 +568,10 @@ def plot_compare_count_(U, counterfactuals ,data,
     ax.set_ylabel(r"$x_2$")
     plt.tight_layout()
     
-    # Mostra
+    # show
     plt.show()
 
-    # Salva (meglio fare savefig PRIMA di close e usando fig.savefig)
+    
     if save:
         os.makedirs(path, exist_ok=True)
         save_path = os.path.join(path, filename)

@@ -2,7 +2,7 @@
 """
 @author: Marica 
 
-Experiment 1
+Experiment 2
 
 """
 
@@ -18,7 +18,7 @@ from pathlib import Path
 import re
 import matplotlib.pyplot as plt
 
-User = 'Maric' #'Maric' 'magag'
+
 
 def rel_gap(d_ex, d_heur):
     return (d_heur - d_ex)/abs(d_ex)
@@ -70,7 +70,7 @@ def plot_gapcurves_inputs_xlsx(
         d[gap_col] = pd.to_numeric(d[gap_col], errors="coerce")
         d = d.dropna()
 
-        # 🔒 clamp: gap negativo → 0
+        
         d[gap_col] = d[gap_col].clip(lower=0)
 
         d = d.sort_values(time_col)

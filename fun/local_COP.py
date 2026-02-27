@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Jan 20 15:19:43 2026
-
 @author: Marica Magagnini
 
 """

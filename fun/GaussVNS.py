@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan 16 11:34:01 2026
+
 
 @author: Marica Magagnini
 This is the implemantation of the GaussianVNS heuristic. 

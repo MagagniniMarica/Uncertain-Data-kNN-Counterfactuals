@@ -16,7 +16,7 @@ from fun import save_txt_, save_exel_
 
 from Experiment_3.plots import heatmap_,  heatmap_input_
 
-User = 'Maric' #'Maric' 'magag'
+
 
 #%% Parameters
 

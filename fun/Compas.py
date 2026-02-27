@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jan  5 17:47:25 2024
-
-@author: Maric
+@author: Marica Magagnini
 """
 
 #import numpy as np

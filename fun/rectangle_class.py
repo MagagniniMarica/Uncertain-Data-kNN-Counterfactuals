@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan  7 10:07:45 2026
-
 @author: Marica Magagnini 
 
 Class Rectangle

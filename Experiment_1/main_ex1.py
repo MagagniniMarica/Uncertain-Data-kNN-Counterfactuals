@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Marica 
+@author: Marica Magagnini
 
 Experiment 1
 
@@ -18,8 +18,6 @@ import pandas as pd
 from pathlib import Path
 import os
 import json
-
-User = 'Maric' #'Maric' 'magag'
 
 
 #%% Problem and dataset Parameters

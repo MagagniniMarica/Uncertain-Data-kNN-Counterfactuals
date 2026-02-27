@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jan 15 09:40:44 2026
-
 @author: Marica Magagnini
 """
 from .rectangle_class import Rettangolo
@@ -16,7 +14,7 @@ import json
 from collections import Counter
 import copy
 
-User = 'Maric' #'Maric' 'magag'
+
 ###############################################################################
 # Dataset
 ###############################################################################
@@ -49,14 +47,14 @@ def Dataset_selection(name):
     task = 'classification'
     if name == 'BH': #boston housing
         from .BostonHousing import data
-        path = f'C:/Users/{User}/Dropbox/Dataset/Boston Housing/'
+        path = "" #INSERT
         return data(path,task)
     elif name == 'GC': # german credit
         from .German import data_GC
         return data_GC()
     elif name == 'CP': # compass
         from .Compas import data_CP
-        path = f'C:/Users/{User}/Dropbox/Dataset/Compas/'
+        path = "" #INSERT
         return data_CP(path)
     else:
         print('To define')

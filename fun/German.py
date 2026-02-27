@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Feb 19 18:17:20 2025
 
-@author: Maric
+
+@author: Marica Magagnini
 """
 
 from ucimlrepo import fetch_ucirepo 
