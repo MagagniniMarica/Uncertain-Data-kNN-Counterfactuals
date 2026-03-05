@@ -137,9 +137,9 @@ def perturbation_(sg, H, features_type, features_multicat):
     H_star.name = 'perturbation'
     H_star.label = None
     H_star_center = {}
-    for f in H_star.features:
-        if f == 'Categorical':
-            H_star_center[f] = (H.x[f] + tau[f]) %2
+    for f, ftype in features_type.items():
+        if ftype == 'Categorical':
+            H_star_center[f] = int(H.x[f] + tau[f]) %2
         else:
             H_star_center[f] = H.x[f] + sg*tau[f]
     H_star.x  = H_star_center
