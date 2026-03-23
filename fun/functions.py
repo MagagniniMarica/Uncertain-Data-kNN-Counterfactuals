@@ -56,6 +56,15 @@ def Dataset_selection(name):
         from .Compas import data_CP
         path = "" #INSERT
         return data_CP(path)
+    elif name == 'AD': # Adult Income
+        from .Adult import data_AD
+        return data_AD()
+    elif name == 'BM': # Bank Marketing
+        from .bankMarketing import data_BM
+        return data_BM()
+    elif name == 'BCW': # Breast Cancer Winsconsin
+        from .BreastCancerWinsconsin import data_BCW
+        return data_BCW()
     else:
         print('To define')
     

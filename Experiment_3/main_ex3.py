@@ -16,26 +16,28 @@ from fun import save_txt_, save_exel_
 
 from Experiment_3.plots import heatmap_,  heatmap_input_
 
-
+User = "" #INSERT
 
 #%% Parameters
 
 # Folder 
-save = False
+save = True
 
 # path  Experiment_3
 BASE_DIR = Path(__file__).resolve().parent
 
 seed = 10                                                                       # Random generation seed
 
-name_dataset = 'BH'                                                             # BH : Boston Housing,GC german credit, CP compas             
+name_dataset = 'AD'                                                             
+# BH : Boston Housing,GC german credit, CP compas, AD abult income, BCW breast cancer winsconsin, BM bank marketing
+          
 DataType = "R"                                                                  #"R" rectangles or "B" balls
 dataset_DIR = BASE_DIR / name_dataset
 
-distances =['d0','d1','dint2'] if name_dataset == 'BH' else ['d1']              # 'd0' : all min dist, 'd1' or 'dint2': max  or int2 dist for label 1
+distances = ['d0','d1','dint2'] if name_dataset == 'BH' else ['d1']              # 'd0' : all min dist, 'd1' or 'dint2': max  or int2 dist for label 1
 
 # Counterfactual problem
-K = [3,5,7] if name_dataset == 'BH' else [15] if name_dataset == 'CP' else [9]  # Elements in the neigborhood
+K = [5] if name_dataset in ['BH','BCW'] else [15] if name_dataset in ['CP','BM'] else [9] if name_dataset == 'GC' else [105]  # Elements in the neigborhood
 M =  100                                                                        # Big-M 
 eps_heur = 1e-5                                                                 # Local costraints
 I = 10 if name_dataset == 'BH' else 2                                           # Number of inputs, 10 in BH, 2 otherwise
@@ -49,7 +51,7 @@ Uncert_degree = [0, 0.02, 0.05] if name_dataset == 'BH' else [0, 0.02]          
 ###############################################################################
 # Solver-Heuristic params
 ###############################################################################
-timelim = 300                                   # Exact and Heuristic time limit
+timelim = 600                                   # Exact and Heuristic time limit
 
 beta = 0.99                                     # Probability for GaussianVNS perturbations
 G = 6                                           # number of sigma components, maxGaussVNS index
@@ -76,7 +78,6 @@ N,J = ground_dataset.shape
 # Input U, Counterfactual S+x 
 #
 Sc = {f:0 for f in features}                                # center
-
 
 
 """
@@ -122,8 +123,8 @@ Uc_df_name =Uc_path/ f'Uc_{I}instances.csv'
 # Salvataggio in CSV
 df = ground_dataset.iloc[I_]
 df.to_csv(Uc_df_name, index=False)
-
 """
+
 
 # Uc_path = BASE_DIR / name_dataset
 # Uc_df_name = f'Uc_{I}instances.csv'
@@ -133,7 +134,18 @@ df.to_csv(Uc_df_name, index=False)
 #
 # SELEZIONARE LE 10 ISTANZE DAL DATESET IN MODO CHE RISULTANO NEGATIVE 
 # PER OGNI DISTANZA, K E LIVELLO DI INCERTEZZA 
-I_= [6, 7, 8, 9, 10, 11, 12, 13, 14, 15] if name_dataset == 'BH' else [2,4] if name_dataset == 'CP' else [4,10]
+
+I_map = {
+    'BH': [6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    'CP': [2, 4],           
+    'GC': [4, 10],              #  German Credit
+    'AD': [0,1],
+    'BM': [0,1],
+    'BCW':[1,3],
+}
+
+I_ = I_map.get(name_dataset)
+
 Uc_set = [dict(ground_dataset.iloc[n]) for n in I_ ]
          
 
@@ -223,7 +235,7 @@ for pc_U in Uncert_degree:
                 
                 # Save options
                 folderpath = save_txt_(params, conf_DIR, foldername=foldername) if save else conf_DIR / foldername
-                
+                # folderpath = conf_DIR / foldername
                 
                 for i, Uc in zip(range(I), Uc_set):
                    
@@ -258,7 +270,8 @@ for pc_U in Uncert_degree:
                         H.label = 'count'
                         U_H = {f : U.x[f] - H.x[f] for f in features }
                         results= {'H': H.x, f'N_{k}' : list(Nk_H.keys()),  "distance type" : d_flag, "distance U-H": d_UH, "U-H": U_H, "Time Execution" : time_exec}
-
+                        print(results)
+                        print('\n\n')
                         if save:
                             save_exel_(f'C-Heuristic-input{i}', results, conf_DIR, foldername = folderpath)
 
@@ -271,7 +284,7 @@ for pc_U in Uncert_degree:
                             folderpath )
                     fig.savefig(Path(folderpath) /f"Heatmap{col_name}.png", dpi=300, bbox_inches="tight")
 #%% Heatmaps divided per input
-k, d_flag =7, 'd1'
+k, d_flag =105, 'd1'
 for i in range(I):
     fig, ax = heatmap_input_(
             features ,
@@ -282,7 +295,7 @@ for i in range(I):
             Uncert_degree,
             d_flag,
             k)
-    save_fold = BASE_DIR/ "Plots in paper BH" / f"{d_flag}_k{k}" # dataset_DIR
-    fig.savefig(save_fold/f"Input{i}.pdf", format="pdf", bbox_inches="tight")
+    save_fold =  BASE_DIR/ "Plots in supplementary" / 'others'#name_dataset/ f"{d_flag}_k{k}"# dataset_DIR
+    fig.savefig(save_fold/f"{name_dataset}_{d_flag}k{k}_Input{i}.pdf", format="pdf", bbox_inches="tight")
 
     
