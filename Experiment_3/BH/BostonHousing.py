@@ -59,6 +59,7 @@ def data(path, task):
     
     
     #Categorical variables
+    boston['CHAS'] = (boston['CHAS'] == 1).astype(int)
     boston['CHAS']=boston['CHAS'].astype('category') 
     # boston = boston.drop(['CHAS'], axis=1)
     

@@ -7,7 +7,7 @@ This repository contains the source code used for the experiments in the paper:
 
 ---
 
-The codes in this repository implement non linear optimization problem (16), as well as the heuristic algorithm proposed in the paper.  
+The codes in this repository implement non linear optimization problem (15), as well as the heuristic algorithm proposed in the paper.  
 It includes all datasets and the supporting functions required to reproduce the experiments described in *Counterfactual explanations with the k-Nearest Neighborhood classifier and uncertain data*.
 
 ---
