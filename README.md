@@ -25,4 +25,10 @@ It includes all datasets and the supporting functions required to reproduce the 
 
 - **fun/**  
   Contains the support functions to perform the experiments above.
+
+  ## Requirements
+
+  The code was tested with Python 3.12.3 and the package versions listed in `REQUIREMENTS.txt`.
+
+  A valid Gurobi license is required to run the optimization models.
     
