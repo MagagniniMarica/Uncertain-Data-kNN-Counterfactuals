@@ -1,4 +1,4 @@
-# Source code and full experiment results for "Counterfactual explanations with the k-Nearest Neighborhood classifier and uncertain data"
+# Source code and full experimental results for "Counterfactual explanations with the k-Nearest Neighborhood classifier and uncertain data"
 
 This repository contains the source code used for the experiments in the paper:
 
@@ -20,6 +20,15 @@ The repository is organized as follows:
 - `Experiment_2/`: contains the Python scripts used to perform Experiment 2, described in Section 5.2 of the paper. The subfolders contain the corresponding dataset information.
 - `Experiment_3/`: contains the Python scripts used to perform Experiment 3, described in Section 5.3 of the paper. The subfolders contain the corresponding dataset information.
 - `fun/`: contains the support code used by the experimental scripts. In particular, this folder includes the dataset-related scripts, the data-type classes, and the functions used to build and run the proposed method.
+
+The `Experiment_*/` folders also contain the detailed computational results obtained for the experiments considered in the paper (`.csv`, `.txt`, and/or `.xlsx` files), together with the plots reported in the paper.
+
+## Data availability
+
+All datasets used in the computational experiments are included in the repository in the corresponding experiment folders.
+
+The real-world datasets used in the experiments are publicly available from the UCI Machine Learning Repository or are provided as raw data files in the corresponding experiment folders.
+
 
 ## Using the proposed method
 
@@ -56,6 +65,6 @@ from fun import kNN_rule, end_counterf_, exact_COP_, Heuristic_counterf_
   
 ## Requirements and Python version
 
-The code was tested with Python 3.12.3 and the package versions listed in REQUIREMENTS.txt. 
+The code was tested with Python 3.12.3 and the package versions listed in `REQUIREMENTS.txt`.
 
 A valid Gurobi license is required to run the optimization models.
