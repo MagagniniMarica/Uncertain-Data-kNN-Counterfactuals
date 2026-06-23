@@ -1,0 +1,19 @@
+seed (random) = 10
+DataType = B
+Notion of distance = d0
+k = 5
+M = 1000.0
+alpha = 0.5
+eps = 1e-05
+U center = {'x1': -8.566964377192644, 'x2': -1.0290210615433626}
+S center = {'x1': 0, 'x2': 0}
+Dataset name = Synthetic
+Features = Index(['x1', 'x2'], dtype='object')
+Number of elements (N) = 30
+Number of features (J) = 2
+Uncertainty percentage range data = (0.04, 0.09)
+Uncertainty percentage Input = 0.04
+Uncertainty percentage counterfactual = 0.04
+0-label distribution = {'mean': 2, 'std': np.float64(8.0)}
+1-label distribution = {'mean': 10, 'std': np.float64(8.0)}
+Exact Solver Time Limit (s) = 100
