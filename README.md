@@ -36,6 +36,7 @@ Researchers who want to apply the proposed method to their own instances should 
 Therefore, the experimental scripts can also be used as examples of complete pipelines showing how to combine the functions in `fun/` to apply the proposed method to a dataset.
 
 ### Typical workflow
+The main functions can be imported directly from the `fun` module: 
 
 ```python
 from fun import Dataset_selection, SymbolicDataset_, Symbolic_US
